@@ -12,6 +12,8 @@ namespace Student_Management_System
 {
     public partial class Form1 : Form
     {
+        private string mode = "NOT SET";
+
         public Form1()
         {
             InitializeComponent();
