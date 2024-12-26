@@ -17,9 +17,41 @@ namespace Student_Management_System
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
+            txtID.Text = "";
+            txtName.Text = "";
+            txtAge.Text = "";
+            txtAddress.Text = "";
+            txtEmail.Text = "";
+            txtContact.Text = "";
+            txtCourse.Text = "";
+        }
 
+        public void focusOnStuentID()
+        {
+            txtID.Enabled = true;
+            txtID.Focus();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            focusOnStuentID();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            focusOnStuentID();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            focusOnStuentID();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            focusOnStuentID();
         }
     }
 }

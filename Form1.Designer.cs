@@ -47,10 +47,8 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.DataGridView();
-            this.pbTable = new System.Windows.Forms.PictureBox();
-            this.pbGroup = new System.Windows.Forms.PictureBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.age = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +56,8 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbTable = new System.Windows.Forms.PictureBox();
+            this.pbGroup = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGroup)).BeginInit();
@@ -217,6 +217,7 @@
             this.btnAdd.TabIndex = 25;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -228,6 +229,7 @@
             this.btnUpdate.TabIndex = 26;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -239,6 +241,7 @@
             this.btnDelete.TabIndex = 27;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSearch
             // 
@@ -250,18 +253,20 @@
             this.btnSearch.TabIndex = 28;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // button1
+            // btnClear
             // 
-            this.button1.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(490, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 24);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnClear.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClear.Location = new System.Drawing.Point(490, 60);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(55, 24);
+            this.btnClear.TabIndex = 29;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // table
             // 
@@ -279,25 +284,6 @@
             this.table.Name = "table";
             this.table.Size = new System.Drawing.Size(743, 403);
             this.table.TabIndex = 31;
-            this.table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // pbTable
-            // 
-            this.pbTable.Image = global::Student_Management_System.Properties.Resources.board;
-            this.pbTable.Location = new System.Drawing.Point(0, 350);
-            this.pbTable.Name = "pbTable";
-            this.pbTable.Size = new System.Drawing.Size(987, 590);
-            this.pbTable.TabIndex = 30;
-            this.pbTable.TabStop = false;
-            // 
-            // pbGroup
-            // 
-            this.pbGroup.Image = global::Student_Management_System.Properties.Resources.kids;
-            this.pbGroup.Location = new System.Drawing.Point(620, 12);
-            this.pbGroup.Name = "pbGroup";
-            this.pbGroup.Size = new System.Drawing.Size(320, 300);
-            this.pbGroup.TabIndex = 24;
-            this.pbGroup.TabStop = false;
             // 
             // id
             // 
@@ -335,6 +321,24 @@
             this.course.HeaderText = "Course";
             this.course.Name = "course";
             // 
+            // pbTable
+            // 
+            this.pbTable.Image = global::Student_Management_System.Properties.Resources.board;
+            this.pbTable.Location = new System.Drawing.Point(0, 350);
+            this.pbTable.Name = "pbTable";
+            this.pbTable.Size = new System.Drawing.Size(987, 590);
+            this.pbTable.TabIndex = 30;
+            this.pbTable.TabStop = false;
+            // 
+            // pbGroup
+            // 
+            this.pbGroup.Image = global::Student_Management_System.Properties.Resources.kids;
+            this.pbGroup.Location = new System.Drawing.Point(620, 12);
+            this.pbGroup.Name = "pbGroup";
+            this.pbGroup.Size = new System.Drawing.Size(320, 300);
+            this.pbGroup.TabIndex = 24;
+            this.pbGroup.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,7 +348,7 @@
             this.ClientSize = new System.Drawing.Size(986, 942);
             this.Controls.Add(this.table);
             this.Controls.Add(this.pbTable);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -397,7 +401,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.PictureBox pbTable;
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
